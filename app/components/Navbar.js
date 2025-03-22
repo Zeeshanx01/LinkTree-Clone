@@ -1,7 +1,7 @@
 
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation';
 
 import Link from 'next/link'
@@ -14,8 +14,14 @@ const Navbar = () => {
   const searchParams = useSearchParams()
   const pathName = usePathname()
 
-  const [handle, sethandle] = useState(searchParams.get('handle'))
+  const [handle, setHandle] = useState(searchParams.get('handle'))
   // const [handle, setHandle] = useState(searchParams.get('handle'))
+
+
+  useEffect(() => {
+    setHandle(searchParams.get('handle'));
+  }, [searchParams]);
+
 
   // Normalize the pathName by removing trailing slashes
   const normalizedPathName = pathName.replace(/\/$/, '')
