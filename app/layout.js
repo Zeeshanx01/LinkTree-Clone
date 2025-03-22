@@ -26,10 +26,12 @@ export default function RootLayout({ children }) {
         <Suspense fallback={<div className="w-[80vw] h-[8vh] z-10 fixed top-10 right-[10vw] bg-gray-200 rounded-full animate-pulse"></div>}>
           <Navbar />
         </Suspense>
-        
+
         <main className="h-[90vh]">
           <NextTopLoader />
-          {children}
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            {children}
+          </Suspense>
         </main>
       </body>
     </html>

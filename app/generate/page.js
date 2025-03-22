@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Suspense } from 'react';
 import Link from 'next/link'
 
 
-const generate = () => {
+const GenerateContent = () => {
 
   const searchParams = useSearchParams()
   const [handle, sethandle] = useState(searchParams.get('handle') || '')
@@ -175,5 +176,17 @@ const generate = () => {
 
   </>)
 }
+
+
+const generate = () => {
+  return (
+    <>
+      <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+        <GenerateContent />
+      </Suspense>
+      <ToastContainer />
+    </>
+  );
+};
 
 export default generate

@@ -13,9 +13,17 @@ const Navbar = () => {
 
   const searchParams = useSearchParams()
   const pathName = usePathname()
+  const [mounted, setMounted] = useState(false);
 
   const [handle, setHandle] = useState(searchParams.get('handle'))
   // const [handle, setHandle] = useState(searchParams.get('handle'))
+
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
 
   useEffect(() => {
