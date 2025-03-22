@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Suspense } from 'react';
-import Link from 'next/link'
 
 
 const GenerateContent = () => {
