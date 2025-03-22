@@ -1,22 +1,24 @@
 
 'use client'
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link'
 
 
 const generate = () => {
 
   const searchParams = useSearchParams()
-
   const [handle, sethandle] = useState(searchParams.get('handle') || '')
   const [links, setLinks] = useState([{ link: '', linktext: '' }])
   const [pic, setpic] = useState('')
   const [desc, setdesc] = useState('')
 
-
+  // Initialize search params after mount
+  useEffect(() => {
+    sethandle(searchParams.get('handle') || '');
+  }, [searchParams]);
 
 
   const handleChange = (index, link, linktext) => {
