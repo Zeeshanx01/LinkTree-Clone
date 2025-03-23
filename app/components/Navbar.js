@@ -26,8 +26,21 @@ const Navbar = () => {
     )
   }
 
+
+
+  // ? Way 1: Check if the pathname is `/generate` and if the `handle` query parameter exists
   // Simplified path check
   const showNavbar = ['/', '/generate'].includes(pathName)
+
+
+  // ? Way 2: Check if the pathname is `/generate` and if the `handle` query parameter exists
+  // // Normalize the pathName by removing trailing slashes
+  // const normalizedPathName = pathName.replace(/\/$/, '')
+  // // Check if the pathname is `/generate` and if the `handle` query parameter exists
+  // const showNavbar = ['/'].includes(pathName) || ['/generate'].includes(normalizedPathName) || (normalizedPathName === '/generate' && handle)
+
+
+
 
   if (!showNavbar) return null
 
