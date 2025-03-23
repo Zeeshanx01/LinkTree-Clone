@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import NextTopLoader from 'nextjs-toploader';
 import { Suspense } from 'react';
 
@@ -27,12 +28,13 @@ export default function RootLayout({ children }) {
           <Navbar />
         </Suspense>
 
-        <main className="h-[90vh]">
+        <main className="">
           <NextTopLoader />
           <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
             {children}
           </Suspense>
         </main>
+        <Footer />
       </body>
     </html>
   );
